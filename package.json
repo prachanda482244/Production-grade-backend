@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev":"nodemon index.js"
+    "dev": "nodemon src/index.js"
   },
-  "author": "prachanda rana",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
