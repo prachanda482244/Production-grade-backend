@@ -1,5 +1,7 @@
 import { config } from "dotenv"
-config()
+config({
+  path: "../.env",
+})
 export const DB_NAME = "videotube"
 export const MONGODB_URI = process.env.MONGODB_URI
 
