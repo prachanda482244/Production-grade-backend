@@ -1,7 +1,7 @@
 import { User } from "../models/user.model.js"
 import { ApiError } from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
-import { generateAccessAndRefreshToken } from "../utils/generateAccessAndRefreshTokens.js"
+import { generateAccessAndRefreshTokens } from "../utils/generateAccessAndRefreshTokens.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { cookieOptions } from "../utils/cookieOptions.js"
@@ -82,6 +82,7 @@ const loginUser = asyncHandler(async (req, res) => {
   // send cookies
 
   const { email, username, password } = req.body
+  console.log(email)
   if (!(username || email)) {
     throw new ApiError(400, "Username or email is required")
   }
@@ -99,7 +100,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new ApiError(401, "Invalid user credentials")
   }
 
-  const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
+  const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
     existedUser._id
   )
   const loggedInUser = await User.findById(existedUser._id).select(

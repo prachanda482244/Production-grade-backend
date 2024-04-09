@@ -19,7 +19,6 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
     if (!user) {
       throw new ApiError(401, error?.message || "Unauthorized User")
     }
-    console.log(token)
     req.user = user
     next()
   } catch (error) {
