@@ -27,6 +27,6 @@ userRouter.route("/login").post(loginUser)
 
 // Secured Routes
 userRouter.route("/logout").post(verifyJWT, logoutUser)
-userRouter.route("/refresh-token").post(refreshAccessToken)
+userRouter.route("/refresh-access-token").post(refreshAccessToken)
 
 export default userRouter
